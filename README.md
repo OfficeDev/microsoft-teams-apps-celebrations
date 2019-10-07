@@ -4,50 +4,37 @@ languages:
 - csharp
 products:
 - dotnet
-description: "Add 150 character max description"
-urlFragment: "update-this-to-unique-url-stub"
+description: "Fun Teams app to celebrate special occasions in a team"
 ---
 
-# Official Microsoft Sample
+# Celebrations App Template
 
-<!-- 
-Guidelines on README format: https://review.docs.microsoft.com/help/onboard/admin/samples/concepts/readme-template?branch=master
+| [Documentation](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki) | [Deployment guide](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki/Deployment-guide) | [Architecture](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki/Solution-overview) |
+| ---- | ---- | ---- |
 
-Guidance on onboarding samples to docs.microsoft.com/samples: https://review.docs.microsoft.com/help/onboard/admin/samples/process/onboarding?branch=master
+It’s hard for the human being to remember everything accurately and not miss out any chance of celebrating special occasions of their loved ones. So, here comes our cute and intelligent Celebrations bot which is reliable and accurate and mitigate the human's pain of remembering each other's occasions. Celebrations is a Teams app that helps team members celebrate each others’ birthdays, anniversaries, and other recurring events. It remembers special occasions of all the team members and sends a cute message in all the teams selected at the time of event creation, to make the team members feel special on their day.
 
-Taxonomies for products and languages: https://review.docs.microsoft.com/new-hope/information-architecture/metadata/taxonomies?branch=master
--->
+The app provides an easy interface for all the team members to add and view their events and also allows the user to select the teams and time zone to post the event on your special day. This bot is so intelligent that it keeps remember all your choices and sends a preview card 3 days before, to the owner of the event, to make them remind that your special event is coming and also provides options to skip and edit the event. If user do not take any action, then bot assumes that you want to share the events with all selected teams and sends a fun card on the day of the event to see a big smile on everybody's face and rejoice the moment with team.
 
-Give a short description for your sample here. What does it do and why is it important?
+## Get started
 
-## Contents
+Begin with the [Solution overview](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki/Solution-overview) to read about what the app does and how it works.
 
-Outline the file contents of the repository. It helps users navigate the codebase, build configuration and any related assets.
+When you're ready to try out Celebrations, or to use it in your own organization, follow the steps in the [Deployment guide](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki/Deployment-guide).
 
-| File/folder       | Description                                |
-|-------------------|--------------------------------------------|
-| `src`             | Sample source code.                        |
-| `.gitignore`      | Define what to ignore at commit time.      |
-| `CHANGELOG.md`    | List of changes to the sample.             |
-| `CONTRIBUTING.md` | Guidelines for contributing to the sample. |
-| `README.md`       | This README file.                          |
-| `LICENSE`         | The license for the sample.                |
+## Feedback
 
-## Prerequisites
+Thoughts? Questions? Ideas? Share them with us on [Teams UserVoice](https://microsoftteams.uservoice.com/forums/555103-public)!
 
-Outline the required components and tools that a user might need to have on their machine in order to run the sample. This can be anything from frameworks, SDKs, OS versions or IDE releases.
+Please report bugs and other code issues [here](https://github.com/OfficeDev/microsoft-teams-celebrations-app/issues/new).
 
-## Setup
+## Legal notice
 
-Explain how to prepare the sample once the user clones or downloads the repository. The section should outline every step necessary to install dependencies and set up any settings (for example, API keys and output folders).
-
-## Runnning the sample
-
-Outline step-by-step instructions to execute the sample and see its output. Include steps for executing the sample from the IDE, starting specific services in the Azure portal or anything related to the overall launch of the code.
-
-## Key concepts
-
-Provide users with more context on the tools and services used in the sample. Explain some of the code that is being used and how services interact with each other.
+Please read the license terms applicable to this [here](https://github.com/OfficeDev/microsoft-teams-celebrations-app/blob/master/LICENSE). In addition to these terms, you agree to the following:
+-	You are responsible for complying with all applicable privacy and security regulations, as well as all internal privacy and security policies of your company.  You must also include your own privacy statement and terms of use for your app if you choose to deploy or share it broadly.
+-	This template includes functionality to provide your company employees with HR information, and it is your responsibility to ensure the data is presented accurately. 
+-	Use and handling of any personal data collected by your app is your responsibility.  Microsoft will not have any access to data collected through your app, and therefore is not responsible for any data related incidents.
+-	Any Microsoft trademarks and logos included in this repository are property of Microsoft and should not be reused, redistributed, modified, repurposed, or otherwise altered or used outside of this repository.
 
 ## Contributing
 
