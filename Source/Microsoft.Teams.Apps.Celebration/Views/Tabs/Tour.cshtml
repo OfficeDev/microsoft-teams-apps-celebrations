@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "Tour";
+}
+
+@section stylesheets {
+    @Styles.Render("~/bundles/bootstrap4-css")
+}
+
+<div id="introDiv1" class="surface">
+    <div class="imageDiv">
+        <img src="/Content/Images/welcome-dialog.png" alt="Welcome image" />
+    </div>
+    <div class="textDiv">
+        <p class="bold-header">Let the team celebrate with you!</p>
+        <p class="regular-content">
+            Tell me when your special occasions are, and what teams you want me to share them with. I’ll post a fun message when the time comes.
+        </p>
+    </div>
+    <div class="footer">
+        <button id="btnNext" class="ts-btn ts-btn-primary" onclick="showDivOnClick('introDiv2', 'introDiv1')">
+            Next
+        </button>
+    </div>
+</div>
+<div id="introDiv2" class="surface">
+    <div class="imageDiv">
+        <img src="/Content/Images/welcome-dialog.png" alt="Welcome image" />
+    </div>
+    <div class="textDiv">
+        <p class="bold-header">Add your events once and rest easy!</p>
+        <p class="regular-content">
+            No need to do it again when you join a new team. If you want me to, I’ll share your events there, too.
+        </p>
+    </div>
+    <div class="footer">
+        <button id="btnDone" class="ts-btn ts-btn-primary" onclick="closeWindow()">
+            Done
+        </button>
+        <button id="btnBack" class="ts-btn ts-btn-secondary button-spacing" onclick="showDivOnClick('introDiv1', 'introDiv2')">
+            Back
+        </button>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        var microsoftTeams;
+        microsoftTeams.initialize();
+
+        let params = getQueryParameters();
+        setTheme(params["theme"]);
+        microsoftTeams.registerOnThemeChangeHandler(setTheme);
+
+        $(window).keyup(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 9) {
+                addClassonElementByTabFocus($("#btnNext:focus"));
+                addClassonElementByTabFocus($("#btnDone:focus"));
+                addClassonElementByTabFocus($("#btnBack:focus"));
+            }
+        });
+
+        function addClassonElementByTabFocus(selector) {
+            if (selector.length) {
+                selector.addClass("keyboard-mode");
+            } else {
+                selector.removeClass("keyboard-mode");
+            }
+        }
+
+        function showDivOnClick(div1, div2) {
+            d1 = document.getElementById(div1);
+            d2 = document.getElementById(div2);
+
+            d1.style.display = "flex";
+            d2.style.display = "none";
+        }
+
+        function closeWindow() {
+            microsoftTeams.tasks.submitTask(null);
+        }
+    </script>
+}

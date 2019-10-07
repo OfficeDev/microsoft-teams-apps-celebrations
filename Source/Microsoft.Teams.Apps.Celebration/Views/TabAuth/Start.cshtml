@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Authentication Start";
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/adal-js")
+    <script>
+        microsoftTeams.initialize();
+
+        // Get the tab context, and use the information to navigate to Azure AD login page
+        microsoftTeams.getContext(function (context) {
+            // ADAL.js configuration
+            let config = {
+                tenant: "@ViewBag.TenantId",
+                clientId: "@ViewBag.ClientId",
+                cacheLocation: "localStorage",
+                navigateToLoginRequestUrl: false,
+                redirectUri: window.location.origin + "@ViewBag.RedirectUriPath",
+
+                // Setup extra query parameters for ADAL
+                // - openid scope adds profile information to the id_token
+                // - login_hint provides the expected user name
+                extraQueryParameter: "scope=openid+profile&login_hint=" + encodeURIComponent(context.loginHint),
+            };
+
+            // Navigate to the AzureAD login page
+            let authContext = new AuthenticationContext(config);
+            authContext.login();
+        });
+    </script>
+}

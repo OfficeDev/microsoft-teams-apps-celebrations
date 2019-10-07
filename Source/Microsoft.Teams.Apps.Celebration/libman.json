@@ -1,0 +1,94 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "lib/bootstrap4/"
+    },
+    {
+      "library": "bootstrap-datepicker@1.9.0",
+      "destination": "lib/bootstrap-datepicker/"
+    },
+    {
+      "library": "bootstrap-multiselect@0.9.15",
+      "destination": "lib/bootstrap-multiselect/"
+    },
+    {
+      "library": "jquery@3.4.1",
+      "destination": "lib/jquery/"
+    },
+    {
+      "library": "jQuery-slimScroll@1.3.8",
+      "destination": "lib/jQuery-slimScroll/"
+    },
+    {
+      "library": "jquery-validate@1.19.1",
+      "destination": "lib/jquery-validate/"
+    },
+    {
+      "library": "jquery-validation-unobtrusive@3.2.11",
+      "destination": "lib/jquery-validation-unobtrusive/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "@microsoft/teams-js@1.5.2",
+      "destination": "lib/teams-js/",
+      "files": [
+        "dist/MicrosoftTeams.js",
+        "dist/MicrosoftTeams.js.map",
+        "dist/MicrosoftTeams.min.js"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@3.4.1",
+      "destination": "lib/bootstrap3/",
+      "files": [
+        "dist/css/bootstrap-theme.css",
+        "dist/css/bootstrap-theme.css.map",
+        "dist/css/bootstrap-theme.min.css",
+        "dist/css/bootstrap-theme.min.css.map",
+        "dist/css/bootstrap.css",
+        "dist/css/bootstrap.css.map",
+        "dist/css/bootstrap.min.css",
+        "dist/css/bootstrap.min.css.map",
+        "dist/fonts/glyphicons-halflings-regular.eot",
+        "dist/fonts/glyphicons-halflings-regular.svg",
+        "dist/fonts/glyphicons-halflings-regular.ttf",
+        "dist/fonts/glyphicons-halflings-regular.woff",
+        "dist/fonts/glyphicons-halflings-regular.woff2",
+        "dist/js/bootstrap.js",
+        "dist/js/bootstrap.min.js",
+        "dist/js/npm.js"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "adal-angular@1.0.17",
+      "destination": "lib/adal-angular/",
+      "files": [
+        "lib/adal.js",
+        "dist/adal.min.js"
+      ]
+    },
+    {
+      "provider": "unpkg",
+      "library": "font-awesome@4.0.3",
+      "destination": "Content/fontawesome/",
+      "files": [
+        "css/font-awesome.css",
+        "css/font-awesome.min.css",
+        "fonts/fontawesome-webfont.eot",
+        "fonts/fontawesome-webfont.svg",
+        "fonts/fontawesome-webfont.ttf",
+        "fonts/fontawesome-webfont.woff",
+        "fonts/FontAwesome.otf"
+      ]
+    },
+    {
+      "library": "moment.js@2.24.0",
+      "destination": "lib/moment.js/"
+    }
+  ]
+}

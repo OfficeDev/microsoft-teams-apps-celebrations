@@ -1,0 +1,138 @@
+﻿/*default rules*/
+.datepicker {
+    height: 42%;
+    width: 41%;
+    font-size: small;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12) !important;
+}
+
+    .datepicker .next {
+        font-family: 'FontAwesome';
+        content: '\f104' !important;
+    }
+
+    .datepicker .prev {
+        font-family: 'FontAwesome';
+        content: '\f105' !important;
+    }
+
+    .datepicker td.day {
+        height:24px !important;
+    }
+
+    .datepicker .active {
+        background: rgb(98, 100, 167) !important;
+    }
+
+
+/*dark theme rules*/
+.theme-dark .datepicker {
+    background: #2d2c2c;
+}
+
+    .theme-dark .datepicker::after {
+        border-bottom: #2d2c2c !important;
+    }
+
+.theme-dark .dow {
+    color: #fff;
+}
+
+.theme-dark .year,
+.theme-dark .month,
+.theme-dark .day {
+    color: #fff;
+}
+
+.theme-dark .old,
+.theme-dark .new {
+    color: #000;
+}
+
+.theme-dark .datepicker-years span:hover,
+.theme-dark .datepicker-years span:focus,
+.theme-dark .datepicker-months span:hover,
+.theme-dark .datepicker-months span:focus,
+.theme-dark .datepicker-days td:hover,
+.theme-dark .datepicker-days td:focus {
+    background: #484644 !important;
+    cursor: pointer;
+}
+
+.theme-dark .active {
+    background: rgb(98, 100, 167) !important;
+}
+
+.theme-dark .datepicker .switch,
+.theme-dark .datepicker .prev,
+.theme-dark .datepicker .next {
+    color: #fff;
+    background-color: #2d2c2c;
+    border-radius: 1%;
+}
+
+    .theme-dark .datepicker .switch:hover,
+    .theme-dark .datepicker .prev:hover,
+    .theme-dark .datepicker .next:hover {
+        color: #fff !important;
+        background-color: #484644 !important;
+    }
+
+
+
+/*high contrast theme rules*/
+.theme-highContrast .datepicker {
+    background: #000;
+    border: solid 1px #fff;
+}
+
+    .theme-highContrast .datepicker::after {
+        border-bottom: #000;
+
+    }
+
+.theme-highContrast .dow {
+    color: #fff;
+}
+
+.theme-highContrast .year,
+.theme-highContrast .month,
+.theme-highContrast .day {
+    color: #fff;
+}
+
+.theme-highContrast .old,
+.theme-highContrast .new {
+    color: #2d2c2c;
+}
+
+.theme-highContrast .datepicker-days td:hover,
+.theme-highContrast .datepicker-days td:focus,
+.theme-highContrast .datepicker-years span:hover,
+.theme-highContrast .datepicker-years span:focus,
+.theme-highContrast .datepicker-months span:hover,
+.theme-highContrast .datepicker-months span:focus {
+    background-color: rgb(255, 255, 1) !important;
+    color: #000;
+    cursor: pointer;
+}
+
+.theme-highContrast .active {
+    background: #1aebff !important;
+    color: #000;
+}
+
+.theme-highContrast .datepicker .switch,
+.theme-highContrast .datepicker .prev,
+.theme-highContrast .datepicker .next {
+    color: #fff;
+    background-color: #000;
+    border-radius: 5%;
+}
+
+    .theme-highContrast .datepicker .switch:hover,
+    .theme-highContrast .datepicker .prev:hover,
+    .theme-highContrast .datepicker .next:hover {
+        background-color: rgb(255, 255, 1) !important;
+        color: #000;
+    }

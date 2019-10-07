@@ -1,0 +1,101 @@
+﻿@model Microsoft.Teams.Apps.Celebration.Models.EventsTabViewModel
+
+@if (@Model.Events.Count == 0)
+{
+    // Empty state div
+    <div id="divEmptyStateforTab" class="empty-state-div">
+        <div id="emptyEvent">
+            <div>
+                <img src="/Content/images/empty-state-celebrations.png" class="empty-event-image" />
+            </div>
+            <div class="empty-event-header">
+                Start celebrating!
+            </div>
+            <div class="empty-event-regular-text">
+                Share a special occasion with your team
+            </div>
+            <div class="new-event-button">
+                <button class="ts-btn ts-btn-primary" onclick="newEventButtonClick()">New event</button>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    // Represents events in the form of tiles.
+    <div id="eventList">
+        @foreach (var celebrationEvent in Model.Events)
+        {
+            <div class="event-tile" id="event" onclick='openTaskModule("@celebrationEvent.Id")'>
+                <div class="event-tile-date">
+                    @celebrationEvent.Date.ToString("MMMM dd")
+                </div>
+                <div class="dropdown event-tile-dropdown">
+                    <button class="ts-btn ts-sym app-icons-fill-hover inset-border inset-border-round inset-border-themed more-button" type="button" data-toggle="dropdown" id="eventTileDropdownButton">
+                        <svg viewBox="0 0 32 32" role="presentation" class="app-svg icons-more app-bar-extra-icons-fill-colors svg-moreicon-margin" focusable="false">
+                            <g class="icons-default-fill">
+                                <circle class="icons-filled" cx="22" cy="11" r="2"></circle>
+                                <circle class="icons-filled" cx="16" cy="11" r="2"></circle>
+                                <circle class="icons-filled" cx="10" cy="11" r="2"></circle>
+                                <circle class="icons-unfilled" cx="22" cy="11" r="1.5"></circle>
+                                <circle class="icons-unfilled" cx="16" cy="11" r="1.5"></circle>
+                                <circle class="icons-unfilled" cx="10" cy="11" r="1.5"></circle>
+                            </g>
+                        </svg>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#" onclick='openTaskModule("@celebrationEvent.Id")'> Edit </a></li>
+                        <li><a href="#" onclick='deleteEvent("@celebrationEvent.Id")'> Delete </a></li>
+                    </ul>
+                </div>
+                <div class="event-tile-title">
+                    @celebrationEvent.Title
+                </div>
+
+                <div class="event-tile-celebration-image-div">
+                    <img src="@celebrationEvent.ImageUrl" alt="" />
+                </div>
+
+                <div class="event-tile-message-header">
+                    Message
+                </div>
+                <div class="event-tile-message">
+                    @celebrationEvent.Message
+                </div>
+            </div>
+        }
+
+        @if (Model.Events.Count < Model.MaxUserEventsCount)
+        {
+            for (int i = 0; i < Model.MaxUserEventsCount - Model.Events.Count; i++)
+            {
+                // New event tile. It allows user to add new event
+                <div class="event-tile" id="newEventTile" onclick="newEventTileClick();">
+                    <div class="event-tile-date ghost-tile-text">
+                        Date
+                    </div>
+                    <div class="event-tile-title ghost-tile-text">
+                        Event title
+                    </div>
+                    <div class="event-tile-celebration-image-div">
+                        <img src="/Content/images/Celebrations-bot-image-new-event.jpg" alt="" />
+                    </div>
+                    <div class="event-tile-message-header ghost-tile-text">
+                        Message
+                    </div>
+                    <div class="event-tile-message ghost-tile-text">
+                        Say something about your event.
+                    </div>
+                </div>
+
+            }
+        }
+        else
+        {
+            <div class="event-exhaust-limit">
+                I’ve reached the maximum number of events I can keep track of right now. If you want to add something new, delete an older one to make room.
+            </div>
+        }
+    </div>
+}
+

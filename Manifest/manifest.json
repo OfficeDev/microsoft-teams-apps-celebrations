@@ -1,0 +1,49 @@
+{
+  "$schema": "https://statics.teams.microsoft.com/sdk/v1.3.0-beta.2/manifest/MicrosoftTeams.schema.json",
+  "manifestVersion": "1.3",
+  "version": "1.0.0",
+  "id": "5c0b8ee0-d445-409b-9c19-ab9edc07a314",
+  "packageName": "com.microsoft.teams.celebrations",
+  "developer": {
+    "name": "<company name>",
+    "websiteUrl": "<website url>",
+    "privacyUrl": "<privacy url>",
+    "termsOfUseUrl": "<terms of use url>"
+  },
+  "name": {
+    "short": "Celebrations"
+  },
+  "description": {
+    "short": "Celebrate birthdays, anniversaries and other events with your team",
+    "full": "Celebrations helps members celebrate each others' birthdays, anniversaries, and other recurring events"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#64A2CC",
+  "staticTabs": [
+    {
+      "contentUrl": "https://<appDomain>/Tabs/Events?userObjectId={userObjectId}&theme={theme}&locale={locale}",
+      "entityId": "EventsTab",
+      "name": "Events",
+      "scopes": [
+        "personal"
+      ]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "<botId>",
+      "isNotificationOnly": false,
+      "scopes": [ "team", "personal" ]
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "<appDomain>"
+  ]
+}

@@ -1,0 +1,211 @@
+﻿@using Microsoft.Teams.Apps.Celebration.Models;
+@using Microsoft.Teams.Apps.Celebration.Helpers;
+@model ManageEventViewModel
+
+<div class="manage-event-outer-div scrollbar-dynamic">
+    <div class="manage-event-inner-div">
+        <!-- Error Alert -->
+        <div id="errorAlert" class="alert alert-danger alert-dismissible fade hide manage-event-error">
+            <strong>Error!</strong> <span id="errorMessage"></span>
+            <button type="button" class="close" onclick="dismissErrorMessage();">&times;</button>
+        </div>
+
+        <div class="manage-event-content">
+            <div id="divEventTitle">
+                <div class="manage-event-field-name">
+                    Event title
+                </div>
+                <div>
+                    <input type="text" class="event-title" id="title" placeholder="title" required="required" autocomplete="off">
+                </div>
+            </div>
+            <div id="celebrationImageCarousel" class="carousel slide manage-event-celebration-image-carousel" data-ride="carousel" data-interval="false">
+                <!-- slideshow -->
+                <div class="carousel-inner">
+                    @for (var i = 0; i < Common.GetCountOfFilesInDirectory(Server.MapPath("~/Content/images/carousel")); i++)
+                    {
+                        var url = $"/Content/images/carousel/{i}.png";
+                        var isActive = ((Model.CelebrationEvent == null) && (i == 0)) ||
+                                        (Model.CelebrationEvent?.ImageUrl == url);
+                        <div class="carousel-item @(isActive ? "active" : string.Empty)">
+                            <img src="@url">
+                        </div>
+                    }
+                </div>
+
+                <!-- Left and right controls -->
+                <div href="#celebrationImageCarousel" class="chevrons-icon fa fa-angle-left" data-slide="prev"></div>
+                <div href="#celebrationImageCarousel" class="chevrons-icon fa fa-angle-right" data-slide="next"></div>
+            </div>
+
+            <div id="divEventMessage">
+                <div class="manage-event-field-name">
+                    Message
+                </div>
+                <div>
+                    <textarea type="text" id="message" placeholder="Message" autocomplete="off">@(Model.CelebrationEvent?.Message)</textarea>
+                </div>
+            </div>
+            <div class="group-2">
+                <div id="divEventType">
+                    <div class="manage-event-field-name">
+                        Event type
+                    </div>
+                    <div>
+                        <select id="eventType">
+                            @foreach (var eventTypeInfo in Model.EventTypesInfo)
+                            {
+                                var eventType = eventTypeInfo.Item1;
+                                var isSelected = ((Model.CelebrationEvent == null) && (eventType == EventTypes.Birthday)) ||
+                                                  (Model.CelebrationEvent?.Type == eventType);
+                                <option value="@((int)eventType)" @(isSelected ? "selected" : string.Empty)>@eventTypeInfo.Item2</option>
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                <div id="divEventDate">
+                    <div class="manage-event-field-name">
+                        <span>
+                            Date
+                        </span>
+                        <span id="invalidDate" class="error-message float-right hide">
+                            Please select a date
+                        </span>
+                    </div>
+                    <div class="event-date-wrapper">
+                        <input type="text" required="required" placeholder="Click here to select date" id="eventDate" autocomplete="off">
+                    </div>
+                </div>
+            </div>
+
+            <div id="divTeams">
+                <div class="manage-event-field-name">
+                    Share this celebration with
+                </div>
+                <div id="divMultiSelectTeam">
+                    <select id="eventTeam" multiple>
+                        @foreach (var team in Model.TeamDetails)
+                        {
+                            <option value="@team.Id" selected>@team.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+
+            <div id="divTimeZones">
+                <div>
+                    <div class="manage-event-field-name">
+                        Celebration bot will post to team at
+                    </div>
+                    <div>
+                        <span id="time" class="manage-event-timespan">10:00 am</span>
+                        <div id="divTimeZonedropDown">
+                            <select id="timezonelist" class="timezone-dropdown">
+                                @foreach (var timeZone in Model.TimeZoneList)
+                                {
+                                    <option value="@timeZone.TimeZoneId" @(timeZone.TimeZoneId == Model.SelectedTimeZoneId ? "selected" : string.Empty)>@timeZone.TimeZoneDisplayName</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="manage-event-buttons-div">
+    <div class="manage-event-buttons-inner-div">
+        @if (!string.IsNullOrEmpty(Model.EventId))
+        {
+            <button class="ts-btn ts-btn-secondary button-spacing" id="btnDelete" onclick="return submitForm('Delete', '@Model.EventId');">Delete</button>
+        }
+        else
+        {
+            <button class="ts-btn ts-btn-secondary button-spacing" id="btnCancel" onclick="closeTaskModule()">Cancel</button>
+        }
+        <button class="ts-btn ts-btn-primary" id="btnSave" onclick="return submitForm('Save', '@(Model.EventId ?? string.Empty)');" disabled>Save</button>
+    </div>
+</div>
+
+<script>
+    @if (Model.CelebrationEvent != null)
+    {
+        @: $('#title').val(@Html.Raw(Json.Encode(Model.CelebrationEvent.Title)));
+        @: $('#eventDate').val(moment("@Model.CelebrationEvent.Date.ToString("o")").format('L'));
+
+        // Set selected teams
+        if (Model.CelebrationEvent.Teams != null)
+        {
+            @: $("#eventTeam").val(@Html.Raw(Json.Encode(Model.CelebrationEvent.Teams.Select(x => x.Id))));
+        }
+    }
+    else
+    {
+        @: $('#eventDate').val(moment().format('L'));
+        @: eventTypeChangeHandler();
+    }
+
+    $('#eventTeam').customMultiselect({
+    buttonWidth: '100%',
+        maxHeight: 188,
+        noneSelectedText: 'Which teams would you like to celebrate with?',
+        optionsSelectedText: '',
+    })
+
+    $('#eventType').customMultiselect({
+    buttonWidth: '100%',
+        maxHeight: 138,
+    })
+    $('#timezonelist').customMultiselect({
+    buttonWidth: '100%',
+        maxHeight: 400,
+        position: 'top',
+    })
+    handleSaveButtonVisibility();
+
+    $('#eventDate').datepicker({
+        autoclose: true
+    }).on('changeDate', function (ev) {
+        if (ev.viewMode === 'days') {
+            $(this).datepicker('hide');
+            handleSaveButtonVisibility();
+        }
+    }).click(function () {
+        hideAllDropdowns();
+        setTimeout(function () {
+            var datePicker = $(".datepicker.dropdown-menu");
+            $("#eventDate").after(datePicker);
+        }, 0);
+    });
+
+    $('input[type="text"]').keyup(function () {
+        handleSaveButtonVisibility();
+    });
+    $('#eventDate').change(function () {
+        handleSaveButtonVisibility();
+    });
+    $('#eventType').change(function () {
+        eventTypeChangeHandler();
+    });
+
+    $('.scrollbar-dynamic').slimScroll({
+        height: '56.2rem'
+    });
+    $("#eventTeam").addFancyScrollbar({
+        listMinHeight: '40',
+        listMaxHeight: '188',
+        offset:'10',
+    });
+
+    $('#timezonelist').addFancyScrollbar({
+        height:'300',
+    })
+
+    // Set time zone dropdown width
+    let containerWidth = $(".manage-event-content").width();
+    let timeSpanWidth = $("#time").width();
+    let offset = 4;
+    $("#divTimeZonedropDown").width(containerWidth - timeSpanWidth - offset);
+</script>

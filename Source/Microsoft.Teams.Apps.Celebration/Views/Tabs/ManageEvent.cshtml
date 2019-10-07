@@ -1,0 +1,113 @@
+﻿@using Microsoft.Teams.Apps.Celebration.Models;
+@model ManageEventViewModel
+
+@{
+    ViewBag.Title = "Edit event";
+}
+
+@section stylesheets {
+    @Styles.Render("~/bundles/bootstrap4-css")
+    @Styles.Render("~/bundles/bootstrap-multiselect-css")
+    @Styles.Render("~/bundles/bootstrap-datepicker-css")
+    @Styles.Render("~/content/fontawesome/css/font-awesome")
+}
+
+<form id="ManageEvent">
+    <div id="loader" style="display: none;" class="loading manage-event-loader">
+        @Html.Partial("~/Views/Shared/_Spinner.cshtml")
+    </div>
+
+    <div id="manage-event-body">
+    </div>
+</form>
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery-validate")
+    @Scripts.Render("~/bundles/jquery-slimscroll")
+    @Scripts.Render("~/bundles/bootstrap4")
+    @Scripts.Render("~/bundles/bootstrap-multiselect")
+    @Scripts.Render("~/bundles/bootstrap-datepicker")
+    @Scripts.Render("~/bundles/momentjs")
+
+    @Scripts.Render("~/Scripts/events.js")
+    @Scripts.Render("~/Scripts/custom-multiselect.js")
+
+    <script>
+        var microsoftTeams;
+        microsoftTeams.initialize();
+
+        let params = getQueryParameters();
+        setTheme(params["theme"]);
+        microsoftTeams.registerOnThemeChangeHandler(setTheme);
+
+        $('#loader').show();
+
+        $.ajax({
+            url: '@Url.Action("ManageEventData")?eventId=@(Model.EventId)&clientTimeZone='+ encodeURIComponent('@Model.ClientTimeZone'),
+            type: 'POST',
+            success: function (result) {
+                $('#manage-event-body').html(result);
+            },
+            error: function (xhr, ajaxOptions, thrownError) {
+                $('#manage-event-body').text("Some error occurred");
+            },
+            complete: function () {
+                $("#loader").hide();
+            }
+        });
+
+        $(window).keyup(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 9) {
+                addClassOnElementByTabFocus($("#btnSave:focus"));
+                addClassOnElementByTabFocus($("#btnDelete:focus"));
+                addClassOnElementByTabFocus($("#btnCancel:focus"));
+            }
+        });
+
+        function addClassOnElementByTabFocus(selector) {
+            if (selector.length) {
+                selector.addClass("keyboard-mode");
+            } else {
+                selector.removeClass("keyboard-mode");
+            }
+        }
+
+        $(document).click(function () {
+            hideAllDropdowns();
+        });
+
+        function hideAllDropdowns() {
+            $(".dropdown-menu.show").removeClass("show").parent(".slimScrollDiv").removeClass("show").addClass("hide");
+        }
+
+        function handleSaveButtonVisibility() {
+            if ($("#title").val() != '' && $("#eventDate").val() != '' && $("#eventType").val() != '') {
+                $('#btnSave').prop('disabled', false);
+            } else {
+                $('#btnSave').prop('disabled', true);
+            }
+        }
+
+        function dismissErrorMessage(){
+            $("#errorAlert").removeClass('show').addClass('hide');
+        }
+
+        function eventTypeChangeHandler() {
+            var eventTypeValue = $('#eventType option:selected').val();
+            if (eventTypeValue === "@((int)EventTypes.Birthday)") {
+                $('#title').val('Birthday');
+                $('#message').val('Wishing you the best on your special day!');
+            }
+            else if (eventTypeValue === "@((int)EventTypes.Anniversary)") {
+                $('#title').val('Anniversary');
+                $('#message').val('Wishing you the best on your special day!');
+            }
+            else {
+                $('#title').val('');
+                $('#message').val('');
+            }
+            handleSaveButtonVisibility();
+        }
+    </script>
+}

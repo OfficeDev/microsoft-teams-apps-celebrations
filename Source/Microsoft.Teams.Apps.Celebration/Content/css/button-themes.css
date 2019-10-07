@@ -1,0 +1,269 @@
+﻿html {
+    font-size: 62.5% /* =10px */
+}
+
+body {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    background-color: transparent;
+    overflow-y: hidden;
+}
+
+.button-spacing {
+    margin-right: 0.8rem;
+}
+
+.ts-btn {
+    font-weight: 600;
+    position: relative;
+    border-radius: .2rem;
+    padding: 0 2rem;
+    background: 0;
+    border: .1rem solid transparent !important;
+    font-size: 1.4rem;
+    padding: .0rem 2rem;
+    height: 3.2rem;
+    min-width: 3.2rem;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+    .ts-btn:focus, .ts-btn:hover {
+        outline: 0;
+    }
+
+
+    .ts-btn::before {
+        top: .1rem;
+        left: .1rem;
+        right: .1rem;
+        bottom: .1rem;
+        border-radius: .2rem;
+    }
+
+    .ts-btn::after, .ts-btn::before {
+        position: absolute;
+        content: '';
+    }
+
+    .ts-btn::before {
+        border: .1rem solid transparent;
+    }
+
+    .ts-btn::after {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: .1rem solid transparent;
+        border-radius: .2rem;
+    }
+
+    .ts-btn::after, .ts-btn::before {
+        position: absolute;
+        content: '';
+    }
+
+.theme-default .ts-btn-primary {
+    box-shadow: 0 0.2rem 0.4rem -0.075rem rgba(0,0,0,.25);
+    background: #6264a7;
+    border-radius: .2rem;
+    color: #fff;
+    border: 0 !important;
+}
+
+    .theme-default .ts-btn-primary:hover {
+        background: #464775;
+        border-color: transparent;
+        color: #FFFFFF;
+    }
+
+    .theme-default .ts-btn-primary:active, .theme-default .ts-btn-primary:focus {
+        background: #33344a;
+        box-shadow: none;
+    }
+
+.theme-default .keyboard-mode.ts-btn.ts-btn-primary:focus::before {
+    border-color: #fff;
+}
+
+.theme-default .keyboard-mode.ts-btn.ts-btn-primary:focus::after {
+    border-color: #252423;
+}
+
+.theme-default .ts-btn:disabled, .theme-default .ts-btn:disabled:hover {
+    color: rgb(200, 198, 196);
+    box-shadow: none;
+    background: rgb(237, 235, 233);
+}
+
+.theme-default .ts-btn-secondary {
+    box-shadow: 0 0.2rem 0.4rem -0.075rem rgba(0,0,0,.1);
+    background: #fff;
+    color: #252423;
+    border: 0 !important
+}
+
+    .theme-default .ts-btn-secondary:hover {
+        background: #edebe9;
+        color: #252423;
+        outline: 0;
+        text-decoration: none;
+        border: 0 !important;
+    }
+
+
+    .theme-default .ts-btn-secondary:active, .theme-default .ts-btn-secondary:focus {
+        background: #e1dfdd;
+        box-shadow: none;
+        color: #252423;
+    }
+
+.theme-default .ts-btn.ts-btn-secondary::after {
+    border-color: #e1dfdd;
+}
+
+.theme-default .keyboard-mode.ts-btn.ts-btn-secondary:focus::after {
+    border-color: #252423;
+}
+
+.theme-default .keyboard-mode.ts-btn.ts-btn-secondary:focus::before {
+    border-color: #fff;
+}
+
+.theme-default .ts-btn.ts-btn-secondary:active::after, .theme-default .ts-btn.ts-btn-secondary:hover::after {
+    border-color: #c8c6c4;
+}
+
+/*Dark Theme*/
+
+/*.theme-dark {
+    background-color: rgb(45,44,44);
+}*/
+
+.theme-dark .ts-btn:disabled, .theme-dark .ts-btn:disabled:hover {
+    color: rgb(96, 94, 92);
+    box-shadow: none;
+    background: rgb(59, 58, 57);
+    border-color: #3ff23f;
+}
+
+.theme-dark .ts-btn-primary, .theme-dark .ts-btn-primary {
+    background: #464775;
+    color: #fff;
+    background: #6264a7;
+}
+
+    .theme-dark .ts-btn-primary:hover, .theme-dark .ts-btn-primary:hover {
+        background: #8b8cc7;
+        border-color: transparent;
+    }
+
+.theme-dark .ts-btn.ts-btn-primary:active, .theme-dark .ts-btn.ts-btn-primary:focus {
+    background: #464775;
+    box-shadow: none;
+}
+
+.theme-dark .keyboard-mode.ts-btn.ts-btn-primary:focus::after {
+    border-color: #fff;
+}
+
+.theme-dark .keyboard-mode.ts-btn.ts-btn-primary:focus::before {
+    border-color: #000;
+}
+
+.theme-dark .secondary-button, .theme-dark .ts-btn-secondary {
+    background-color: rgba(0,0,0,0);
+    color: #fff;
+    border: 0 !important;
+}
+
+    .theme-dark .secondary-button:hover, .theme-dark .ts-btn-secondary:hover {
+        background: #636262;
+        color: #fff;
+        background: rgba(255,255,255,.1);
+    }
+
+.theme-dark .ts-btn.ts-btn-secondary::after,
+.theme-dark .ts-btn.ts-btn-secondary:active::after,
+.theme-dark .ts-btn.ts-btn-secondary:hover::after {
+    border-color: rgba(255,255,255,.3);
+}
+
+.theme-dark .keyboard-mode.ts-btn.ts-btn-secondary:focus::before {
+    border-color: #000;
+}
+
+.theme-dark .keyboard-mode.ts-btn.ts-btn-secondary:focus::after {
+    border-color: #fff;
+}
+.theme-dark .ts-btn.ts-btn-secondary:active {
+    background: rgba(255,255,255,.2);
+    box-shadow: none;
+    color: #fff;
+}
+
+
+/*Theeme HighContrast*/
+
+/*.theme-highContrast {
+    background-color: rgb(0,0,0);
+}*/
+
+.theme-highContrast .ts-btn-primary:disabled, .theme-highContrast .ts-btn-primary:disabled:hover {
+    background: #3ff23f !important;
+    color: #000 !important;
+}
+
+.theme-highContrast .ts-btn:disabled, .theme-highContrast .ts-btn:disabled:hover {
+    background: #000;
+    color: #3ff23f;
+    box-shadow: none;
+}
+
+.theme-highContrast .ts-btn-primary, .theme-highContrast .button-primary {
+    background: #FFFFFF;
+    color: #000;
+    border: 0 !important;
+    box-shadow: 0 0.2rem 0.4rem -0.075rem rgba(0,0,0,.25);
+}
+
+    .theme-highContrast .ts-btn-primary:hover {
+        background: #FFFF00;
+    }
+
+.theme-highContrast .ts-btn.ts-btn-primary:active, .theme-highContrast .ts-btn.ts-btn-primary:focus {
+    background: #ff0;
+    box-shadow: none;
+}
+
+.theme-highContrast .secondary-button, .theme-highContrast .ts-btn-secondary {
+    background: #000000;
+    color: #FFFFFF;
+    border: 0 !important;
+}
+
+    .theme-highContrast .secondary-button:hover, .theme-highContrast .ts-btn-secondary:hover {
+        background: #FFFF00;
+        border-color: transparent !important;
+        color: #000000;
+    }
+
+.theme-highContrast .ts-btn.ts-btn-secondary::after {
+    border-color: #fff;
+}
+
+.theme-highContrast .ts-btn.ts-btn-secondary:hover::after {
+    border-color: rgba(255,255,255,.3);
+}
+
+.theme-highContrast .ts-btn.ts-btn-secondary:active,
+.theme-highContrast .keyboard-mode.ts-btn.ts-btn-secondary:focus {
+    background: #ff0;
+    box-shadow: none;
+    color: #000;
+}
+
+    .theme-highContrast .ts-btn.ts-btn-secondary:active::after,
+    .theme-highContrast .keyboard-mode.ts-btn.ts-btn-secondary:focus::after {
+        border-color: #ff0;
+    }

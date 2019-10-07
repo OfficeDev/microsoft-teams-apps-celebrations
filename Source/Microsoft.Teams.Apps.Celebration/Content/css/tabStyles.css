@@ -1,0 +1,686 @@
+﻿html {
+    font-size: 62.5% /* =10px */
+}
+
+body {
+    font-family: "Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    background-color: transparent;
+    overflow-y: hidden;
+}
+
+/*Common classes starts here*/
+.float-right {
+    float: right;
+}
+
+.error-message {
+    color: #c4314b;
+    opacity: 1;
+    font-size: 12px;
+}
+
+.button-spacing {
+    margin-right: 0.8rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+input[type="submit"]:disabled {
+    border: 1px solid #cccccc;
+    background-color: #cccccc;
+    color: #666666;
+    box-shadow: none;
+}
+
+input::placeholder, textarea::placeholder {
+    font-size: 1.4rem;
+    color: #252424;
+    font-weight: normal;
+    opacity: 0.75;
+}
+
+/*Common classes Ends here*/
+
+/*empty event state starts here*/
+.empty-state-div {
+    margin-top: 6.6rem;
+    text-align: center;
+}
+
+.empty-event-image {
+    height: 30.5rem;
+    width: 32.5rem;
+}
+
+.empty-event-header {
+    color: #252424;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: .5rem;
+}
+
+.empty-event-regular-text {
+    color: #252424;
+    opacity: 0.5;
+    font-size: 1.4rem;
+}
+
+.new-event-button {
+    margin-top: 3.2rem;
+}
+/*empty event state Ends here*/
+
+/*Events view starts here*/
+.event-tile {
+    width: 35.5rem;
+    display: inline-block;
+    margin: 1.6rem 1.6rem;
+    background-color: white;
+    color: #252424;
+    font-weight: normal;
+    cursor: pointer;
+    border-radius: 3px;
+    box-shadow: 0 .2rem .4rem -.075rem rgba(0,0,0,.1);
+}
+
+.event-tile-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-top: 1.6rem;
+    height: 4.8rem;
+    display: inline;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+
+.event-tile-dropdown {
+    display: inline-block;
+    float: right;
+    vertical-align: top;
+}
+
+    .event-tile-dropdown .dropdown-menu {
+        top: 32px !important;
+        left: 15px !important;
+    }
+
+    .event-tile-dropdown > button {
+        background: none;
+        border: none;
+        font-size: 1.8rem;
+        padding: 0;
+        vertical-align: top;
+        height: 32px;
+        width: 32px;
+        box-sizing: border-box;
+        margin-right: 8px;
+        margin: 8px;
+    }
+
+.event-tile-date {
+    padding-left: 1.6rem;
+    font-size: 1.4rem;
+    padding-top: 1.4rem;
+    display: inline-block;
+}
+
+.event-tile-message-header {
+    font-size: 1.2rem;
+    opacity: 0.75;
+    padding-left: 1.6rem;
+}
+
+.event-tile-message {
+    font-size: 1.4rem;
+    height: 6rem;
+    padding-left: 1.6rem;
+    margin-bottom: 1.6rem;
+    padding-right: 1.6rem;
+}
+
+.event-tile-celebration-image-div {
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+    overflow: hidden;
+    overflow-y: hidden;
+    Width: 32.3rem !important;
+    Height: 12.6rem !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .event-tile-celebration-image-div > img {
+        width: 100%;
+        padding-bottom: 1.2rem;
+        position: relative;
+        left: 50%;
+        transform: translate(-50%);
+        top:-25%;
+    }
+
+.ghost-tile-text {
+    /*opacity: 0.75;*/
+    color: #484644;
+}
+
+.new-event-div {
+    padding-top: 1.6rem;
+    padding-left: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+
+.event-exhaust-limit {
+    padding-top: 3.2rem;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+}
+/*Events view Ends here*/
+
+/*Mange events starts here*/
+.manage-event-outer-div {
+    width: 53.6rem;
+    height: 56.2rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    /*margin-top:3rem;*/
+}
+
+.manage-event-celebration-image-carousel {
+    /*margin-right: 1rem;*/
+}
+
+.chevrons-icon {
+    background: rgba(0, 0, 0, .3);
+    position: absolute;
+    top: 12.7rem;
+    text-align: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    cursor: pointer;
+    margin-right: 0.1rem;
+}
+
+.fa-angle-right {
+    right: 0;
+    color: white
+}
+
+.fa-angle-left {
+    left: 0;
+    color: white
+}
+
+.fa-angle-right:before {
+    font-size: 2rem;
+    margin-right: -.2rem;
+    opacity: 0.60;
+}
+
+.fa-angle-left:before {
+    font-size: 2rem;
+    margin-left: -.2rem;
+    opacity: 0.60;
+}
+
+.manage-event-inner-div {
+    margin-right: .2rem;
+    margin-left: .2rem;
+}
+
+.manage-event-celebration-image-carousel .carousel-item > img {
+    height: 28.6rem;
+    width: 100%;
+}
+
+.manage-event-content {
+    /*margin-right:1rem;*/
+}
+
+    .manage-event-content > div {
+        padding-top: 1.2rem;
+    }
+
+div.manage-event-content > .group-2 > div:first-child {
+    display: inline-block;
+    width: 48%;
+}
+
+div.manage-event-content > .group-2 > div:last-child {
+    display: inline-block;
+    width: 48%;
+    float: right;
+}
+
+.event-date-wrapper {
+    position: relative;
+}
+
+.manage-event-content input[type="text"], .manage-event-content input[type="date"], textarea {
+    width: 99.9%;
+    height: 3.2rem;
+    padding: .6rem 1.2rem .7rem 1.2rem;
+    box-sizing: border-box;
+    border: none;
+    border-radius: .3rem;
+    background-color: #f3f2f1 !important;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #252424;
+    resize: none;
+    text-indent: .1rem;
+    outline-color: transparent;
+}
+
+.manage-event-content textarea {
+    height: 78px;
+    overflow-y: hidden;
+}
+
+.manage-event-content #divEventTitle {
+    padding-top: 0 !important;
+}
+.manage-event-content .group-2 {
+    padding-top: 1rem;
+}
+
+input[type="date"]:after {
+    font-family: 'FontAwesome';
+    content: '\f073';
+    position: absolute;
+    right: .8rem;
+    color: grey;
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: transparent;
+    background: none;
+    z-index: 1;
+    position: relative;
+    top: 0;
+    right: -1.2rem;
+}
+
+input[type=date]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    display: none;
+}
+
+.manage-event-content select {
+    width: 100%;
+    font-size: 1.4rem;
+    font-weight: normal;
+    color: #252424;
+    height: 3rem;
+    border-radius: .3rem;
+    padding-left: 1.2rem;
+    background-color: #f3f2f1;
+    border-style: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    outline-color: transparent;
+}
+
+.select-wrapper {
+    position: relative;
+    font-size: 1.4rem;
+}
+
+    .select-wrapper .timezone-dropdown {
+        width: 87%;
+        margin-left: .6rem;
+    }
+
+    .select-wrapper:after {
+        font-family: FontAwesome;
+        content: '\f107';
+        font-size: 2.5rem;
+        position: absolute;
+        top: -.4rem;
+        right: .8rem;
+        color: rgba(0, 0, 0, .3);
+        pointer-events: none;
+    }
+
+.multi-select-dropdown {
+    min-height: 40px;
+    max-height: 100px;
+}
+
+.manage-event-field-name {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #252424;
+    opacity: 0.75;
+    margin-bottom: 6px;
+}
+
+.manage-event-buttons-div {
+    float: right;
+    margin-top: 1.8rem;
+    margin-right: 3.2rem;
+}
+
+.manage-event-buttons-inner-div {
+    /*margin-right: 2.8rem*/
+}
+
+.modal-footer {
+    border-top: none !important;
+    height: 8.7rem;
+}
+
+.modal-header {
+    border-bottom: none !important;
+    padding: 0 !important;
+    opacity: 1;
+    color: #252424;
+    margin-left: 3.2rem;
+    margin-top: 2.7rem;
+    margin-right: 3rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+    height: 3.5rem;
+}
+
+    .modal-header .close {
+        margin-top: -0.2rem;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        font-size: 16px;
+        font-weight: 100;
+        opacity: 1;
+        color: #484644;
+    }
+
+   .close:focus{
+        outline:0;
+    }
+
+.modal-body {
+    padding: 0 !important;
+    height: 6rem;
+    width: 53.6rem;
+    margin-left: 3.2rem;
+    margin-right: 3.2rem;
+    margin-top: 0.9rem;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+}
+
+.got-it {
+    margin-top: 1.25rem;
+    margin-bottom: 1.25rem;
+    margin-right: 1.7rem;
+}
+
+#newEventErrorStateModal .modal-title {
+    line-height: 3.4rem;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+.alert-dismissible .close {
+    outline: 0;
+    font-size: 16px;
+    color: #484644;
+}
+
+#disablingDiv {
+    display: none;
+    z-index: 1001;
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    opacity: .00;
+    filter: alpha(opacity=00);
+}
+
+.manage-event-error {
+    color: #c4314b;
+    font-size: 14px;
+}
+
+/*Mange events ends here*/
+
+/* multi select start*/
+.multiselect-container {
+    width: 100% !important;
+    min-height: 30%;
+    overflow-y: auto;
+    border: none !important;
+    border-top: 1px solid rgba(0,0,0,.15);
+    border-bottom: 1px solid rgba(0,0,0,.15);
+    box-shadow: 0px 0.125rem 0.75rem 0px rgba(22, 35, 58, 0.36);
+    border-radius: 0.1875rem;
+    position: absolute;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+.multiselect-native-select button:focus, input[type=text], textarea:focus {
+    border: 0 solid transparent;
+    border-bottom-width: .2rem;
+    border-bottom-color: #6264a7;
+    box-shadow: none;
+    outline: 0;
+}
+
+#divMultiSelectTeam {
+    height: 30px !important;
+}
+
+    #divMultiSelectTeam .multiselect-container {
+        top: 0 !important;
+    }
+
+#divTimeZonedropDown .multiselect-container {
+    top: 0 !important;
+}
+
+#divMultiSelectTeam .slimScrollDiv {
+    bottom: 25px !important;
+    position: absolute !important
+}
+
+#divTimeZonedropDown {
+    height: 30px !important;
+    display: inline-block;
+    margin-bottom: 1px;
+}
+
+    #divTimeZonedropDown .slimScrollDiv {
+        top: -312px !important;
+        position: absolute !important;
+        width: 100% !important;
+    }
+
+#divEventDate .datepicker {
+    position: absolute;
+    top: -230px !important;
+    left: 0 !important;
+    z-index: 10001;
+    opacity: 1;
+    height: 225px;
+    width: 100%;
+}
+
+    #divEventDate .datepicker:after, #divEventDate .datepicker:before {
+        border: 0 !important;
+    }
+
+.multiselect-container input[type=radio] {
+    visibility: hidden;
+}
+
+.slimScrollBar {
+    right: 3px !important;
+}
+
+.slimScrollRail, .slimScrollBar {
+    z-index: 10001 !important;
+}
+
+.multiselect.dropdown-toggle {
+    height: 30px !important
+}
+
+
+.multiselect-container > li {
+    list-style-type: none;
+    width: 100%;
+    float: left;
+    padding-right: 1rem;
+    height: 4.2rem;
+    outline-color: transparent;
+}
+
+    .multiselect-container > li :hover {
+        background-color: #F3F2F1;
+    }
+
+    .multiselect-container > li.active, .multiselect-container > li:focus {
+        background-color: #E1DFDD;
+        outline: none !important;
+    }
+
+
+    .multiselect-container > li > a {
+        text-decoration: none;
+        color: #252424;
+        font-size: 1.4rem;
+    }
+
+        .multiselect-container > li > a > label {
+            width: 100%;
+            margin-left: -5%;
+            padding: 1.1rem 0 1.3rem 0 !important;
+            position: relative;
+        }
+
+            .multiselect-container > li > a > label > input[type=checkbox] {
+                height: 0;
+                width: 0;
+                margin-left: 3.4rem;
+                padding-right: 1.2rem;
+                visibility: hidden;
+                padding-top: 11px;
+            }
+
+.multiselect-selected-text {
+    color: #252424;
+    font-size: 1.4rem;
+    padding-right: 20px;
+}
+
+.multiselect-native-select > div > button {
+    background-color: #F3F2F1;
+    text-align: left;
+    border: none;
+    padding-left: 1rem;
+}
+
+.multiselect.dropdown-toggle::after {
+    font-family: FontAwesome;
+    content: '\f107';
+    font-size: 2.5rem;
+    position: absolute;
+    top: -1.4rem;
+    right: -.1rem;
+    color: rgba(0, 0, 0, .3);
+    pointer-events: none
+}
+
+.multiselect {
+    box-shadow: none !important;
+}
+
+#manage-event-body > .slimScrollDiv {
+    margin-top: 3rem !important;
+}
+
+.manage-event-loader {
+    top: -100px !important;
+}
+
+.checkbox input:checked ~ .checkmark {
+    background-color: #6264a7;
+    border-color: #6264a7;
+}
+
+.checkmark {
+    position: absolute;
+    top: 1.3rem;
+    left: 1rem;
+    height: 1.6rem;
+    width: 1.6rem;
+    background-color: #fff;
+    border-radius: 3px;
+    border: 1px solid black;
+    /* opacity: 1; */
+}
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+
+.checkbox .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 7px;
+    border: solid white;
+    border-width: 0 1px 1px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+a:visited, a:hover, a:focus, a:active {
+    outline: 0;
+}
+
+.event-tile-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+}
+
+
+.event-tile-message {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+.manage-event-timespan {
+    opacity: 1;
+    color: #252424;
+    font-size: 1.4rem;
+}
+/* multi select end*/

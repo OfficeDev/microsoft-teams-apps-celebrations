@@ -1,0 +1,918 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.props" Condition="Exists('..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A8BA1066-5695-4D71-ABB4-65E5A5E0C3D4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Microsoft.Teams.Apps.Celebration</RootNamespace>
+    <AssemblyName>Microsoft.Teams.Apps.Celebration</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <DocumentationFile>bin\Microsoft.Teams.Apps.Celebration.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\</OutputPath>
+    <LangVersion>7.1</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdaptiveCards, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\AdaptiveCards.1.1.2\lib\net452\AdaptiveCards.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac, Version=4.6.2.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.6.2\lib\net45\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Chronic, Version=0.3.2.0, Culture=neutral, PublicKeyToken=3bd1f1ef638b0d3c, processorArchitecture=MSIL">
+      <HintPath>$(SolutionDir)\packages\Chronic.Signed.0.3.2\lib\net40\Chronic.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.10.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.11.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights.TraceListener, Version=2.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.TraceListener.2.11.0\lib\net45\Microsoft.ApplicationInsights.TraceListener.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Documents.Client, Version=1.22.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Azure.DocumentDB.1.22.0\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bot.Builder, Version=3.15.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bot.Builder.3.15.2.2\lib\net46\Microsoft.Bot.Builder.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bot.Builder.Autofac, Version=3.15.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bot.Builder.3.15.2.2\lib\net46\Microsoft.Bot.Builder.Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bot.Builder.Azure, Version=3.15.2.2, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bot.Builder.Azure.3.15.2.2\lib\net46\Microsoft.Bot.Builder.Azure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Bot.Connector">
+      <HintPath>..\packages\Microsoft.Bot.Connector.3.15.2.2\lib\net46\Microsoft.Bot.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bot.Connector.Teams, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f300afd708cefcd3, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Bot.Connector.Teams.0.9.0\lib\net46\Microsoft.Bot.Connector.Teams.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.8.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.5.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.5.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocol.Extensions, Version=1.0.40306.1554, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocol.Extensions.1.0.4.403061554\lib\net45\Microsoft.IdentityModel.Protocol.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.5.5.0\lib\net461\Microsoft.IdentityModel.Protocols.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Protocols.OpenIdConnect.5.5.0\lib\net461\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.5.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Rest.ClientRuntime, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Rest.ClientRuntime.2.3.10\lib\net452\Microsoft.Rest.ClientRuntime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.WindowsAzure.ConfigurationManager.3.2.3\lib\net40\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=9.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.9.3.3\lib\net45\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Polly, Version=5.3.1.0, Culture=neutral, PublicKeyToken=c8a3ffc3f8f825cc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Polly-Signed.5.3.1\lib\net45\Polly.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.4.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.6.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.5.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.3\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Loader, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.Loader.4.3.0\lib\netstandard1.5\System.Runtime.Loader.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="TimeZoneConverter, Version=3.2.0.0, Culture=neutral, PublicKeyToken=e20ab7d0d9479841, processorArchitecture=MSIL">
+      <HintPath>..\packages\TimeZoneConverter.3.2.0\lib\net461\TimeZoneConverter.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\button-themes.css" />
+    <Content Include="Content\css\datepicker-custom-theme.css" />
+    <Content Include="Content\css\datepicker.css" />
+    <Content Include="Content\css\spinner.css" />
+    <Content Include="Content\css\styles.css" />
+    <Content Include="Content\css\tabStyles.css" />
+    <Content Include="Content\fontawesome\css\font-awesome.css" />
+    <Content Include="Content\fontawesome\css\font-awesome.min.css" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\images\carousel\1.png" />
+    <Content Include="Content\images\carousel\3.png" />
+    <Content Include="Content\images\carousel\4.png" />
+    <Content Include="Content\images\carousel\5.png" />
+    <Content Include="Content\images\carousel\6.png" />
+    <Content Include="Content\images\carousel\7.png" />
+    <Content Include="Content\images\carousel\8.png" />
+    <Content Include="Content\images\carousel\9.png" />
+    <Content Include="Content\images\carousel\10.png" />
+    <Content Include="Content\images\carousel\2.png" />
+    <Content Include="Content\images\carousel\0.png" />
+    <Content Include="Content\images\Celebrations-bot-image-new-event.jpg" />
+    <Content Include="Content\images\celebration_bot_full-color.png" />
+    <Content Include="Content\images\empty-state-celebrations.png" />
+    <Content Include="Content\images\welcome-card-image.png" />
+    <Content Include="Content\images\welcome-dialog.png" />
+    <Content Include="default.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="lib\adal-angular\dist\adal.min.js" />
+    <Content Include="lib\adal-angular\lib\adal.js" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.min.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="lib\bootstrap-datepicker\js\bootstrap-datepicker.js" />
+    <Content Include="lib\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker-en-CA.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ar-tn.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ar.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.az.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.bg.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.bm.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.bn.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.br.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.bs.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ca.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.cs.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.cy.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.da.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.de.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.el.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-AU.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-CA.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-GB.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-IE.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-NZ.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.en-ZA.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.eo.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.es.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.et.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.eu.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.fa.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.fi.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.fo.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.fr-CH.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.fr.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.gl.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.he.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.hi.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.hr.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.hu.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.hy.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.id.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.is.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.it-CH.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.it.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ja.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ka.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.kh.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.kk.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.km.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ko.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.kr.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.lt.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.lv.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.me.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.mk.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.mn.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ms.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.nl-BE.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.nl.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.no.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.oc.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.pl.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.pt-BR.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.pt.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ro.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.rs-latin.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.rs.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ru.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.si.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sk.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sl.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sq.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sr-latin.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sr.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sv.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.sw.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.ta.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.tg.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.th.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.tk.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.tr.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.uk.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.uz-cyrl.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.uz-latn.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.vi.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.zh-CN.min.js" />
+    <Content Include="lib\bootstrap-datepicker\locales\bootstrap-datepicker.zh-TW.min.js" />
+    <Content Include="lib\bootstrap-multiselect\css\bootstrap-multiselect.css" />
+    <Content Include="lib\bootstrap-multiselect\js\bootstrap-multiselect.js" />
+    <Content Include="lib\bootstrap-multiselect\js\bootstrap-multiselect.min.js" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap-theme.css" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap-theme.min.css" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap.css" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap3\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="lib\bootstrap3\dist\js\bootstrap.js" />
+    <Content Include="lib\bootstrap3\dist\js\bootstrap.min.js" />
+    <Content Include="lib\bootstrap3\dist\js\npm.js" />
+    <Content Include="lib\bootstrap4\css\bootstrap-grid.css" />
+    <Content Include="lib\bootstrap4\css\bootstrap-grid.min.css" />
+    <Content Include="lib\bootstrap4\css\bootstrap-reboot.css" />
+    <Content Include="lib\bootstrap4\css\bootstrap-reboot.min.css" />
+    <Content Include="lib\bootstrap4\css\bootstrap.css" />
+    <Content Include="lib\bootstrap4\css\bootstrap.min.css" />
+    <Content Include="lib\bootstrap4\js\bootstrap.bundle.js" />
+    <Content Include="lib\bootstrap4\js\bootstrap.bundle.min.js" />
+    <Content Include="lib\bootstrap4\js\bootstrap.js" />
+    <Content Include="lib\bootstrap4\js\bootstrap.min.js" />
+    <Content Include="lib\jQuery-slimScroll\jquery.slimscroll.js" />
+    <Content Include="lib\jQuery-slimScroll\jquery.slimscroll.min.js" />
+    <Content Include="lib\jquery-validate\additional-methods.js" />
+    <Content Include="lib\jquery-validate\additional-methods.min.js" />
+    <Content Include="lib\jquery-validate\jquery.validate.js" />
+    <Content Include="lib\jquery-validate\jquery.validate.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ar.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ar.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_az.js" />
+    <Content Include="lib\jquery-validate\localization\messages_az.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_bg.js" />
+    <Content Include="lib\jquery-validate\localization\messages_bg.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_bn_BD.js" />
+    <Content Include="lib\jquery-validate\localization\messages_bn_BD.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ca.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ca.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_cs.js" />
+    <Content Include="lib\jquery-validate\localization\messages_cs.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_da.js" />
+    <Content Include="lib\jquery-validate\localization\messages_da.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_de.js" />
+    <Content Include="lib\jquery-validate\localization\messages_de.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_el.js" />
+    <Content Include="lib\jquery-validate\localization\messages_el.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_es.js" />
+    <Content Include="lib\jquery-validate\localization\messages_es.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_es_AR.js" />
+    <Content Include="lib\jquery-validate\localization\messages_es_AR.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_es_PE.js" />
+    <Content Include="lib\jquery-validate\localization\messages_es_PE.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_et.js" />
+    <Content Include="lib\jquery-validate\localization\messages_et.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_eu.js" />
+    <Content Include="lib\jquery-validate\localization\messages_eu.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_fa.js" />
+    <Content Include="lib\jquery-validate\localization\messages_fa.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_fi.js" />
+    <Content Include="lib\jquery-validate\localization\messages_fi.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_fr.js" />
+    <Content Include="lib\jquery-validate\localization\messages_fr.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ge.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ge.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_gl.js" />
+    <Content Include="lib\jquery-validate\localization\messages_gl.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_he.js" />
+    <Content Include="lib\jquery-validate\localization\messages_he.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_hr.js" />
+    <Content Include="lib\jquery-validate\localization\messages_hr.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_hu.js" />
+    <Content Include="lib\jquery-validate\localization\messages_hu.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_hy_AM.js" />
+    <Content Include="lib\jquery-validate\localization\messages_hy_AM.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_id.js" />
+    <Content Include="lib\jquery-validate\localization\messages_id.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_is.js" />
+    <Content Include="lib\jquery-validate\localization\messages_is.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_it.js" />
+    <Content Include="lib\jquery-validate\localization\messages_it.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ja.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ja.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ka.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ka.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_kk.js" />
+    <Content Include="lib\jquery-validate\localization\messages_kk.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ko.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ko.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_lt.js" />
+    <Content Include="lib\jquery-validate\localization\messages_lt.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_lv.js" />
+    <Content Include="lib\jquery-validate\localization\messages_lv.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_mk.js" />
+    <Content Include="lib\jquery-validate\localization\messages_mk.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_my.js" />
+    <Content Include="lib\jquery-validate\localization\messages_my.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_nl.js" />
+    <Content Include="lib\jquery-validate\localization\messages_nl.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_no.js" />
+    <Content Include="lib\jquery-validate\localization\messages_no.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_pl.js" />
+    <Content Include="lib\jquery-validate\localization\messages_pl.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_pt_BR.js" />
+    <Content Include="lib\jquery-validate\localization\messages_pt_BR.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_pt_PT.js" />
+    <Content Include="lib\jquery-validate\localization\messages_pt_PT.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ro.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ro.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ru.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ru.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sd.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sd.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_si.js" />
+    <Content Include="lib\jquery-validate\localization\messages_si.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sk.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sk.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sl.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sl.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sr.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sr.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sr_lat.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sr_lat.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sv.js" />
+    <Content Include="lib\jquery-validate\localization\messages_sv.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_th.js" />
+    <Content Include="lib\jquery-validate\localization\messages_th.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_tj.js" />
+    <Content Include="lib\jquery-validate\localization\messages_tj.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_tr.js" />
+    <Content Include="lib\jquery-validate\localization\messages_tr.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_uk.js" />
+    <Content Include="lib\jquery-validate\localization\messages_uk.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ur.js" />
+    <Content Include="lib\jquery-validate\localization\messages_ur.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_vi.js" />
+    <Content Include="lib\jquery-validate\localization\messages_vi.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_zh.js" />
+    <Content Include="lib\jquery-validate\localization\messages_zh.min.js" />
+    <Content Include="lib\jquery-validate\localization\messages_zh_TW.js" />
+    <Content Include="lib\jquery-validate\localization\messages_zh_TW.min.js" />
+    <Content Include="lib\jquery-validate\localization\methods_de.js" />
+    <Content Include="lib\jquery-validate\localization\methods_de.min.js" />
+    <Content Include="lib\jquery-validate\localization\methods_es_CL.js" />
+    <Content Include="lib\jquery-validate\localization\methods_es_CL.min.js" />
+    <Content Include="lib\jquery-validate\localization\methods_fi.js" />
+    <Content Include="lib\jquery-validate\localization\methods_fi.min.js" />
+    <Content Include="lib\jquery-validate\localization\methods_it.js" />
+    <Content Include="lib\jquery-validate\localization\methods_it.min.js" />
+    <Content Include="lib\jquery-validate\localization\methods_nl.js" />
+    <Content Include="lib\jquery-validate\localization\methods_nl.min.js" />
+    <Content Include="lib\jquery-validate\localization\methods_pt.js" />
+    <Content Include="lib\jquery-validate\localization\methods_pt.min.js" />
+    <Content Include="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="lib\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="lib\jquery\core.js" />
+    <Content Include="lib\jquery\jquery.js" />
+    <Content Include="lib\jquery\jquery.min.js" />
+    <Content Include="lib\jquery\jquery.slim.js" />
+    <Content Include="lib\jquery\jquery.slim.min.js" />
+    <Content Include="lib\moment.js\locale\af.js" />
+    <Content Include="lib\moment.js\locale\ar-dz.js" />
+    <Content Include="lib\moment.js\locale\ar-kw.js" />
+    <Content Include="lib\moment.js\locale\ar-ly.js" />
+    <Content Include="lib\moment.js\locale\ar-ma.js" />
+    <Content Include="lib\moment.js\locale\ar-sa.js" />
+    <Content Include="lib\moment.js\locale\ar-tn.js" />
+    <Content Include="lib\moment.js\locale\ar.js" />
+    <Content Include="lib\moment.js\locale\az.js" />
+    <Content Include="lib\moment.js\locale\be.js" />
+    <Content Include="lib\moment.js\locale\bg.js" />
+    <Content Include="lib\moment.js\locale\bm.js" />
+    <Content Include="lib\moment.js\locale\bn.js" />
+    <Content Include="lib\moment.js\locale\bo.js" />
+    <Content Include="lib\moment.js\locale\br.js" />
+    <Content Include="lib\moment.js\locale\bs.js" />
+    <Content Include="lib\moment.js\locale\ca.js" />
+    <Content Include="lib\moment.js\locale\cs.js" />
+    <Content Include="lib\moment.js\locale\cv.js" />
+    <Content Include="lib\moment.js\locale\cy.js" />
+    <Content Include="lib\moment.js\locale\da.js" />
+    <Content Include="lib\moment.js\locale\de-at.js" />
+    <Content Include="lib\moment.js\locale\de-ch.js" />
+    <Content Include="lib\moment.js\locale\de.js" />
+    <Content Include="lib\moment.js\locale\dv.js" />
+    <Content Include="lib\moment.js\locale\el.js" />
+    <Content Include="lib\moment.js\locale\en-au.js" />
+    <Content Include="lib\moment.js\locale\en-ca.js" />
+    <Content Include="lib\moment.js\locale\en-gb.js" />
+    <Content Include="lib\moment.js\locale\en-ie.js" />
+    <Content Include="lib\moment.js\locale\en-il.js" />
+    <Content Include="lib\moment.js\locale\en-nz.js" />
+    <Content Include="lib\moment.js\locale\en-SG.js" />
+    <Content Include="lib\moment.js\locale\eo.js" />
+    <Content Include="lib\moment.js\locale\es-do.js" />
+    <Content Include="lib\moment.js\locale\es-us.js" />
+    <Content Include="lib\moment.js\locale\es.js" />
+    <Content Include="lib\moment.js\locale\et.js" />
+    <Content Include="lib\moment.js\locale\eu.js" />
+    <Content Include="lib\moment.js\locale\fa.js" />
+    <Content Include="lib\moment.js\locale\fi.js" />
+    <Content Include="lib\moment.js\locale\fo.js" />
+    <Content Include="lib\moment.js\locale\fr-ca.js" />
+    <Content Include="lib\moment.js\locale\fr-ch.js" />
+    <Content Include="lib\moment.js\locale\fr.js" />
+    <Content Include="lib\moment.js\locale\fy.js" />
+    <Content Include="lib\moment.js\locale\ga.js" />
+    <Content Include="lib\moment.js\locale\gd.js" />
+    <Content Include="lib\moment.js\locale\gl.js" />
+    <Content Include="lib\moment.js\locale\gom-latn.js" />
+    <Content Include="lib\moment.js\locale\gu.js" />
+    <Content Include="lib\moment.js\locale\he.js" />
+    <Content Include="lib\moment.js\locale\hi.js" />
+    <Content Include="lib\moment.js\locale\hr.js" />
+    <Content Include="lib\moment.js\locale\hu.js" />
+    <Content Include="lib\moment.js\locale\hy-am.js" />
+    <Content Include="lib\moment.js\locale\id.js" />
+    <Content Include="lib\moment.js\locale\is.js" />
+    <Content Include="lib\moment.js\locale\it-ch.js" />
+    <Content Include="lib\moment.js\locale\it.js" />
+    <Content Include="lib\moment.js\locale\ja.js" />
+    <Content Include="lib\moment.js\locale\jv.js" />
+    <Content Include="lib\moment.js\locale\ka.js" />
+    <Content Include="lib\moment.js\locale\kk.js" />
+    <Content Include="lib\moment.js\locale\km.js" />
+    <Content Include="lib\moment.js\locale\kn.js" />
+    <Content Include="lib\moment.js\locale\ko.js" />
+    <Content Include="lib\moment.js\locale\ku.js" />
+    <Content Include="lib\moment.js\locale\ky.js" />
+    <Content Include="lib\moment.js\locale\lb.js" />
+    <Content Include="lib\moment.js\locale\lo.js" />
+    <Content Include="lib\moment.js\locale\lt.js" />
+    <Content Include="lib\moment.js\locale\lv.js" />
+    <Content Include="lib\moment.js\locale\me.js" />
+    <Content Include="lib\moment.js\locale\mi.js" />
+    <Content Include="lib\moment.js\locale\mk.js" />
+    <Content Include="lib\moment.js\locale\ml.js" />
+    <Content Include="lib\moment.js\locale\mn.js" />
+    <Content Include="lib\moment.js\locale\mr.js" />
+    <Content Include="lib\moment.js\locale\ms-my.js" />
+    <Content Include="lib\moment.js\locale\ms.js" />
+    <Content Include="lib\moment.js\locale\mt.js" />
+    <Content Include="lib\moment.js\locale\my.js" />
+    <Content Include="lib\moment.js\locale\nb.js" />
+    <Content Include="lib\moment.js\locale\ne.js" />
+    <Content Include="lib\moment.js\locale\nl-be.js" />
+    <Content Include="lib\moment.js\locale\nl.js" />
+    <Content Include="lib\moment.js\locale\nn.js" />
+    <Content Include="lib\moment.js\locale\pa-in.js" />
+    <Content Include="lib\moment.js\locale\pl.js" />
+    <Content Include="lib\moment.js\locale\pt-br.js" />
+    <Content Include="lib\moment.js\locale\pt.js" />
+    <Content Include="lib\moment.js\locale\ro.js" />
+    <Content Include="lib\moment.js\locale\ru.js" />
+    <Content Include="lib\moment.js\locale\sd.js" />
+    <Content Include="lib\moment.js\locale\se.js" />
+    <Content Include="lib\moment.js\locale\si.js" />
+    <Content Include="lib\moment.js\locale\sk.js" />
+    <Content Include="lib\moment.js\locale\sl.js" />
+    <Content Include="lib\moment.js\locale\sq.js" />
+    <Content Include="lib\moment.js\locale\sr-cyrl.js" />
+    <Content Include="lib\moment.js\locale\sr.js" />
+    <Content Include="lib\moment.js\locale\ss.js" />
+    <Content Include="lib\moment.js\locale\sv.js" />
+    <Content Include="lib\moment.js\locale\sw.js" />
+    <Content Include="lib\moment.js\locale\ta.js" />
+    <Content Include="lib\moment.js\locale\te.js" />
+    <Content Include="lib\moment.js\locale\tet.js" />
+    <Content Include="lib\moment.js\locale\tg.js" />
+    <Content Include="lib\moment.js\locale\th.js" />
+    <Content Include="lib\moment.js\locale\tl-ph.js" />
+    <Content Include="lib\moment.js\locale\tlh.js" />
+    <Content Include="lib\moment.js\locale\tr.js" />
+    <Content Include="lib\moment.js\locale\tzl.js" />
+    <Content Include="lib\moment.js\locale\tzm-latn.js" />
+    <Content Include="lib\moment.js\locale\tzm.js" />
+    <Content Include="lib\moment.js\locale\ug-cn.js" />
+    <Content Include="lib\moment.js\locale\uk.js" />
+    <Content Include="lib\moment.js\locale\ur.js" />
+    <Content Include="lib\moment.js\locale\uz-latn.js" />
+    <Content Include="lib\moment.js\locale\uz.js" />
+    <Content Include="lib\moment.js\locale\vi.js" />
+    <Content Include="lib\moment.js\locale\x-pseudo.js" />
+    <Content Include="lib\moment.js\locale\yo.js" />
+    <Content Include="lib\moment.js\locale\zh-cn.js" />
+    <Content Include="lib\moment.js\locale\zh-hk.js" />
+    <Content Include="lib\moment.js\locale\zh-tw.js" />
+    <Content Include="lib\moment.js\moment-with-locales.js" />
+    <Content Include="lib\moment.js\moment-with-locales.min.js" />
+    <Content Include="lib\moment.js\moment.js" />
+    <Content Include="lib\moment.js\moment.min.js" />
+    <Content Include="lib\teams-js\dist\MicrosoftTeams.js" />
+    <Content Include="lib\teams-js\dist\MicrosoftTeams.min.js" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\events.js" />
+    <Content Include="libman.json" />
+    <Content Include="lib\bootstrap4\css\bootstrap-grid.css.map" />
+    <Content Include="lib\bootstrap4\css\bootstrap-grid.min.css.map" />
+    <Content Include="lib\bootstrap4\css\bootstrap-reboot.css.map" />
+    <Content Include="lib\bootstrap4\css\bootstrap-reboot.min.css.map" />
+    <Content Include="lib\bootstrap4\css\bootstrap.css.map" />
+    <Content Include="lib\bootstrap4\css\bootstrap.min.css.map" />
+    <Content Include="lib\bootstrap4\js\bootstrap.bundle.js.map" />
+    <Content Include="lib\bootstrap4\js\bootstrap.bundle.min.js.map" />
+    <Content Include="lib\bootstrap4\js\bootstrap.js.map" />
+    <Content Include="lib\bootstrap4\js\bootstrap.min.js.map" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.css.map" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker.standalone.css.map" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.css.map" />
+    <Content Include="lib\bootstrap-datepicker\css\bootstrap-datepicker3.standalone.css.map" />
+    <Content Include="lib\bootstrap-multiselect\js\bootstrap-multiselect.min.js.map" />
+    <Content Include="lib\jquery\jquery.min.map" />
+    <Content Include="lib\jquery\jquery.slim.min.map" />
+    <Content Include="lib\teams-js\dist\MicrosoftTeams.js.map" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap-theme.css.map" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap.css.map" />
+    <Content Include="lib\bootstrap3\dist\css\bootstrap.min.css.map" />
+    <Content Include="lib\bootstrap3\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="lib\bootstrap3\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="lib\bootstrap3\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="lib\bootstrap3\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\theme.js" />
+    <Content Include="Scripts\custom-multiselect.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ApplicationConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CelebrationsAppModule.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\EventNotificationController.cs" />
+    <Compile Include="Controllers\SharedSecretAuthenticationAttribute.cs" />
+    <Compile Include="Controllers\PreviewController.cs" />
+    <Compile Include="Controllers\MessageDeliveryController.cs" />
+    <Compile Include="Controllers\TabAuthController.cs" />
+    <Compile Include="Dialog\DialogFactory.cs" />
+    <Compile Include="Dialog\IgnoreEventShareDialog.cs" />
+    <Compile Include="Dialog\RootDialog.cs" />
+    <Compile Include="Dialog\ShareEventDialog.cs" />
+    <Compile Include="Dialog\SkipEventDialog.cs" />
+    <Compile Include="ErrorHandler\AiHandleErrorAttribute.cs" />
+    <Compile Include="Helpers\ApplicationSettings.cs" />
+    <Compile Include="Helpers\Common.cs" />
+    <Compile Include="Helpers\ConversationExtensions.cs" />
+    <Compile Include="Helpers\ConnectorClientFactory.cs" />
+    <Compile Include="Helpers\IConnectorClientFactory.cs" />
+    <Compile Include="Helpers\IEventDataProvider.cs" />
+    <Compile Include="Helpers\EventDataProvider.cs" />
+    <Compile Include="Helpers\IUserManagementHelper.cs" />
+    <Compile Include="Helpers\UserManagementHelper.cs" />
+    <Compile Include="Models\CelebrationEvent.cs" />
+    <Compile Include="Models\EventStatus.cs" />
+    <Compile Include="Models\EventTypes.cs" />
+    <Compile Include="Models\MessageType.cs" />
+    <Compile Include="Models\EventMessage.cs" />
+    <Compile Include="Models\EventNotificationData.cs" />
+    <Compile Include="Models\EventOccurrence.cs" />
+    <Compile Include="Models\EventsTabViewModel.cs" />
+    <Compile Include="Models\MessageSendResult.cs" />
+    <Compile Include="Models\BotScope.cs" />
+    <Compile Include="Models\ManageEventViewModel.cs" />
+    <Compile Include="Models\PreviewCardPayload.cs" />
+    <Compile Include="Models\ShareEventPayload.cs" />
+    <Compile Include="Models\SubmitActionPayload.cs" />
+    <Compile Include="Models\Team.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserTeamMembership.cs" />
+    <Compile Include="Models\TimeZoneDisplayInfo.cs" />
+    <Compile Include="Resources\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\MessagesController.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Controllers\TabsController.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Helpers\CelebrationCard.cs" />
+    <Compile Include="Helpers\AdaptiveCardExtensions.cs" />
+    <Compile Include="Helpers\DocumentQueryExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\web.config" />
+    <Content Include="Views\Tabs\ManageEvent.cshtml" />
+    <Content Include="Views\Tabs\Events.cshtml" />
+    <Content Include="Views\Shared\_Spinner.cshtml" />
+    <Content Include="Views\TabAuth\Callback.cshtml" />
+    <Content Include="Views\TabAuth\Login.cshtml" />
+    <Content Include="Views\TabAuth\Start.cshtml" />
+    <Content Include="Views\Tabs\EventsData.cshtml" />
+    <Content Include="Views\Tabs\ManageEventData.cshtml" />
+    <Content Include="Views\Tabs\Tour.cshtml" />
+    <Content Include="ApplicationInsights.config" />
+    <Content Include="Connected Services\Application Insights\ConnectedService.json" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fontawesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fontawesome\fonts\FontAwesome.otf" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="lib\font-awesome\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\GlobalSuppressions.cs" />
+    <AdditionalFiles Include="..\stylecop.json" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.Teams.Apps.Common\Microsoft.Teams.Apps.Common.csproj">
+      <Project>{7fa2791f-e894-4876-8773-a5318631365c}</Project>
+      <Name>Microsoft.Teams.Apps.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <EnableMSDeployAppOffline>true</EnableMSDeployAppOffline>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3979</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3979/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.targets" Condition="Exists('..\packages\Microsoft.Web.LibraryManager.Build.2.0.96\build\Microsoft.Web.LibraryManager.Build.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Login";
+}
+
+@section stylesheets {
+    @Styles.Render("~/bundles/bootstrap3-css")
+}
+
+<!-- Login view -->
+<div id="divLogin" style="display: none" class="empty-state-div">
+    <div>
+        <img src="/Content/images/empty-state-celebrations.png" class="empty-event-image" />
+    </div>
+    <div class="empty-event-header">
+        Start celebrating!
+    </div>
+    <div class="new-event-button">
+        <button class="ts-btn ts-btn-primary" onclick="login()">Login</button>
+    </div>
+</div>
+
+@section scripts {
+    @Scripts.Render("~/bundles/adal-js")
+    <script>
+        let clientId = "@ViewBag.ClientId";
+        var authContext;
+
+        microsoftTeams.initialize();
+        microsoftTeams.getContext(ctx => {
+            // ADAL.js configuration
+            let config = {
+                tenant: "@ViewBag.TenantId",
+                clientId: clientId,
+                cacheLocation: "localStorage",
+                navigateToLoginRequestUrl: false,
+                redirectUri: window.location.origin + "@ViewBag.RedirectUriPath",
+
+                // Setup extra query parameters for ADAL
+                // - openid and profile scope adds profile information to the id_token
+                // - login_hint provides the expected user name
+                extraQueryParameter: "scope=openid+profile&login_hint=" + encodeURIComponent(ctx.loginHint),
+            };
+            authContext = new AuthenticationContext(config);
+
+            // See if there's a cached user and it matches the expected user
+            let user = authContext.getCachedUser();
+            if (user) {
+                if (user.profile.oid !== ctx.userObjectId) {
+                    // User doesn't match, clear the cache
+                    authContext.clearCache();
+                }
+            }
+
+            // Get the id token (which is the token for resource = clientId)
+            authContext.acquireToken(clientId, function (errDesc, token, err, tokenType) {
+                if (token) {
+                    console.log("Acquired token silently");
+
+                    loginWithToken(authContext.getCachedToken(clientId));
+                } else {
+                    console.log("Failed to get id token silently: " + errDesc);
+
+                    // Failed to get the id token silently; show the login view
+                    $("#divLogin").css({ display: "" });
+
+                    // You could attempt to launch the login popup here, but in browsers this could be blocked by
+                    // a popup blocker, in which case the login attempt will fail with the reason FailedToOpenWindow.
+                }
+            });
+        });
+
+        // Interactive login to Azure AD
+        function login() {
+            microsoftTeams.authentication.authenticate({
+                url: window.location.origin + "@ViewBag.StartPath",
+                width: 600,
+                height: 535,
+                successCallback: function () {
+                    loginWithToken(authContext.getCachedToken(clientId));
+                },
+                failureCallback: function (reason) {
+                    console.log("Login failed: " + reason);
+                    if (reason === "CancelledByUser" || reason === "FailedToOpenWindow") {
+                        console.log("Login was blocked by popup blocker or canceled by user.");
+                    }
+                    // At this point we have to get the user involved, so show the login button
+                    $("#divLogin").css({ display: "" });
+                }
+            });
+        }
+
+        function loginWithToken(token) {
+            $.ajax({
+                url: "@ViewBag.TokenLoginEndpointPath",
+                method: "POST",
+                headers: {
+                    "Authorization": 'Bearer ' + token
+                },
+                success: function () {
+                    window.location.replace(window.location.origin + "@ViewBag.DestinationPath");
+                },
+                failure: function () {
+                    // At this point we have to get the user involved, so show the login button
+                    $("#divLogin").css({ display: "" });
+                }
+            });
+        }
+    </script>
+}
