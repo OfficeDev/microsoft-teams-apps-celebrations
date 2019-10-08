@@ -36,7 +36,7 @@
     "appDescription": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "Celebrations is a Teams bot that helps team members celebrate each others’ birthdays, anniversaries and other recurring events",
+      "defaultValue": "Celebrations is a Teams bot that helps team members celebrate each others' birthdays, anniversaries and other recurring events",
       "metadata": {
         "description": "The description for the app."
       }
@@ -44,7 +44,7 @@
     "appIconUrl": {
       "type": "string",
       "minLength": 1,
-      "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-celebration-app/master/Manifest/color.png",
+      "defaultValue": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-celebrations-app/master/Manifest/color.png",
       "metadata": {
         "description": "The link to the icon for the bot. It must resolve to a PNG file."
       }
@@ -126,7 +126,7 @@
   },
   "variables": {
     "baseResourceName": "[toLower(parameters('appName'))]",
-    "uniqueString": "[uniqueString(subscription().id, resourceGroup().id, variables('baseResourceName')]",
+    "uniqueString": "[uniqueString(subscription().id, resourceGroup().id, variables('baseResourceName'))]",
     "botDisplayName": "[parameters('appName')]",
     "botUniqueName": "[concat('bot-', variables('uniqueString'))]",
     "appServiceName": "[concat(variables('baseResourceName'), '-', variables('uniqueString'))]",
