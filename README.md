@@ -12,9 +12,9 @@ description: "Fun Teams app to celebrate special occasions in a team"
 | [Documentation](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki) | [Deployment guide](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki/Deployment-guide) | [Architecture](https://github.com/OfficeDev/microsoft-teams-celebrations-app/wiki/Solution-overview) |
 | ---- | ---- | ---- |
 
-It’s hard for the human being to remember everything accurately and not miss out any chance of celebrating special occasions of their loved ones. So, here comes our cute and intelligent Celebrations bot which is reliable and accurate and mitigate the human's pain of remembering each other's occasions. Celebrations is a Teams app that helps team members celebrate each others’ birthdays, anniversaries, and other recurring events. It remembers special occasions of all the team members and sends a cute message in all the teams selected at the time of event creation, to make the team members feel special on their day.
+Celebrations is a Teams app that helps team members celebrate each others’ birthdays, anniversaries, and other recurring events. It remembers special occasions of all the team members and sends a friendly message in all the teams selected at the time of event creation, to make the team members feel special on their day.
 
-The app provides an easy interface for all the team members to add and view their events and also allows the user to select the teams and time zone to post the event on your special day. This bot is so intelligent that it keeps remember all your choices and sends a preview card 3 days before, to the owner of the event, to make them remind that your special event is coming and also provides options to skip and edit the event. If user do not take any action, then bot assumes that you want to share the events with all selected teams and sends a fun card on the day of the event to see a big smile on everybody's face and rejoice the moment with team.
+The app provides an easy interface for all the team members to personally add and view their events and also allows the user to select the teams in which the events gets shared. 
 
 ## Get started
 
