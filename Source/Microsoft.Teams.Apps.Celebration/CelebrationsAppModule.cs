@@ -70,17 +70,12 @@ namespace Microsoft.Teams.Apps.Celebration
                 .AsImplementedInterfaces()
                 .SingleInstance();
 
-            var store = new DocumentDbBotDataStore(
-                new Uri(configProvider.GetSetting(ApplicationConfig.CosmosDBEndpointUrl)),
-                configProvider.GetSetting(ApplicationConfig.CosmosDBKey));
+            // Use an in-memory store, as the bot does not currently use bot state storage.
+            var store = new InMemoryDataStore();
             builder.Register(c => store)
-                 .Keyed<IBotDataStore<BotData>>(AzureModule.Key_DataStore)
-                 .AsSelf()
-                 .SingleInstance();
-            builder.Register(c => new CachingBotDataStore(store, CachingBotDataStoreConsistencyPolicy.LastWriteWins))
                  .As<IBotDataStore<BotData>>()
                  .AsSelf()
-                 .InstancePerLifetimeScope();
+                 .SingleInstance();
 
             // Register dialogs
             builder.RegisterType<RootDialog>()
