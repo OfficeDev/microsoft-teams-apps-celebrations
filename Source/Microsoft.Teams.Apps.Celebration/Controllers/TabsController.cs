@@ -119,6 +119,7 @@ namespace Microsoft.Teams.Apps.Celebration
         /// <returns>Tour View</returns>
         [Route("Tour")]
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Tour()
         {
             return this.View();

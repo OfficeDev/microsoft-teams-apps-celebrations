@@ -140,7 +140,7 @@
     <value>{0} is celebrating {1} with the team.</value>
   </data>
   <data name="EventPreviewMessageText" xml:space="preserve">
-    <value>Hi {0}, you have an upcoming event in next 3 days. If you take no action I will post this celebration.</value>
+    <value>Hi {0}, you have an upcoming event in the next 3 days. If you take no action, I will post this celebration.</value>
   </data>
   <data name="EventShareMessage" xml:space="preserve">
     <value>Looks like you joined a new team. Would you like to share your events in {0} as well?</value>
@@ -204,11 +204,8 @@
     <value>Tour</value>
     <comment>Title of the tour task module</comment>
   </data>
-  <data name="WelcomeMessage" xml:space="preserve">
-    <value>Hey I am Celebration bot. Thanks for installing me.</value>
-  </data>
   <data name="WelcomeMessageForTeam" xml:space="preserve">
-    <value>I'm Celebration bot. {0} installed me in {1}. I’m here to help everyone celebrate birthdays, anniversaries, and anything else you tell me about.</value>
+    <value>I'm the Celebrations bot. {0} installed me in {1}. I’m here to help everyone celebrate birthdays, anniversaries, and anything else you tell me about.</value>
     <comment>Text of the welcome card sent to the team</comment>
   </data>
   <data name="WelcomeMessageForTeamTitle" xml:space="preserve">

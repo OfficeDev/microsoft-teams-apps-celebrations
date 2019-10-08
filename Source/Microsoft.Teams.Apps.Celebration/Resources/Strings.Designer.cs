@@ -124,7 +124,7 @@ namespace Microsoft.Teams.Apps.Celebration.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hi {0}, you have an upcoming event in next 3 days. If you take no action I will post this celebration..
+        ///   Looks up a localized string similar to Hi {0}, you have an upcoming event in the next 3 days. If you take no action, I will post this celebration..
         /// </summary>
         internal static string EventPreviewMessageText {
             get {
@@ -295,16 +295,7 @@ namespace Microsoft.Teams.Apps.Celebration.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hey I am Celebration bot. Thanks for installing me..
-        /// </summary>
-        internal static string WelcomeMessage {
-            get {
-                return ResourceManager.GetString("WelcomeMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to I&apos;m Celebration bot. {0} installed me in {1}. I’m here to help everyone celebrate birthdays, anniversaries, and anything else you tell me about..
+        ///   Looks up a localized string similar to I&apos;m the Celebrations bot. {0} installed me in {1}. I’m here to help everyone celebrate birthdays, anniversaries, and anything else you tell me about..
         /// </summary>
         internal static string WelcomeMessageForTeam {
             get {

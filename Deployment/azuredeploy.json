@@ -154,6 +154,10 @@
     "appDomain": {
       "type": "string",
       "value": "[variables('appServiceBaseDomain')]"
+    },
+    "redirectUri": {
+      "type": "string",
+      "value": "[concat(variables('appServiceBaseUrl'), '/TabAuth/Callback')]"
     }
   },
   "resources": [
